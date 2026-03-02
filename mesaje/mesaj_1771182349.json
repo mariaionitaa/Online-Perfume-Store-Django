@@ -1,0 +1,15 @@
+{
+    "nume": "Ionita",
+    "prenume": "Maria",
+    "cnp": "6050610000000",
+    "varsta_la_momentul_mesajului": "20 de ani si 8 luni",
+    "email": "maria@gmail.com",
+    "tip_mesaj": "reclamatie",
+    "subiect": "Test",
+    "minim_zile_asteptare": 4,
+    "mesaj": "Mesaj test. Ana are mere. Ionita",
+    "urgent": false,
+    "ip_utilizator": "127.0.0.1",
+    "data_sosire": "15-02-2026",
+    "ora_sosire": "21:05:49"
+}

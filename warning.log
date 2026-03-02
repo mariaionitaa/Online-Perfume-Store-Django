@@ -1,0 +1,166 @@
+WARNING 2026-02-19 20:13:40,126 views 24984 18648 Acesta este un avertisment.
+ERROR 2026-02-19 20:13:40,128 views 24984 18648 Acesta este un mesaj de eroare.
+CRITICAL 2026-02-19 20:13:40,130 views 24984 18648 Acesta este un mesaj critic.
+ERROR 2026-02-19 20:13:40,339 log 24984 18648 Internal Server Error: /aplicatia_mea/test_logging/
+Traceback (most recent call last):
+  File "C:\Users\maria\AppData\Roaming\Python\Python313\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\maria\AppData\Roaming\Python\Python313\site-packages\django\core\handlers\base.py", line 204, in _get_response
+    self.check_response(response, callback)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\maria\AppData\Roaming\Python\Python313\site-packages\django\core\handlers\base.py", line 332, in check_response
+    raise ValueError(
+    ...<2 lines>...
+    )
+ValueError: The view aplicatia_mea.views.afisare_pagina didn't return an HttpResponse object. It returned None instead.
+ERROR 2026-02-19 20:13:40,348 basehttp 24984 18648 "GET /aplicatia_mea/test_logging/ HTTP/1.1" 500 68120
+WARNING 2026-02-19 20:54:26,617 log 23128 19852 Forbidden: /aplicatia_mea/interzis/
+WARNING 2026-02-19 20:54:26,619 basehttp 23128 19852 "GET /aplicatia_mea/interzis/ HTTP/1.1" 403 411
+WARNING 2026-02-19 20:54:31,416 log 23128 19852 Forbidden: /aplicatia_mea/interzis/
+WARNING 2026-02-19 20:54:31,417 basehttp 23128 19852 "GET /aplicatia_mea/interzis/ HTTP/1.1" 403 411
+WARNING 2026-02-19 20:54:32,077 log 23128 19852 Forbidden: /aplicatia_mea/interzis/
+WARNING 2026-02-19 20:54:32,078 basehttp 23128 19852 "GET /aplicatia_mea/interzis/ HTTP/1.1" 403 411
+WARNING 2026-02-19 20:54:32,879 log 23128 19852 Forbidden: /aplicatia_mea/interzis/
+WARNING 2026-02-19 20:54:32,880 basehttp 23128 19852 "GET /aplicatia_mea/interzis/ HTTP/1.1" 403 411
+WARNING 2026-02-19 20:54:33,470 log 23128 19852 Forbidden: /aplicatia_mea/interzis/
+WARNING 2026-02-19 20:54:33,471 basehttp 23128 19852 "GET /aplicatia_mea/interzis/ HTTP/1.1" 403 411
+WARNING 2026-02-19 20:54:33,730 log 23128 19852 Forbidden: /aplicatia_mea/interzis/
+WARNING 2026-02-19 20:54:33,732 basehttp 23128 19852 "GET /aplicatia_mea/interzis/ HTTP/1.1" 403 557
+WARNING 2026-02-19 20:54:34,135 log 23128 19852 Forbidden: /aplicatia_mea/interzis/
+WARNING 2026-02-19 20:54:34,164 basehttp 23128 19852 "GET /aplicatia_mea/interzis/ HTTP/1.1" 403 557
+WARNING 2026-02-19 20:54:34,965 log 23128 19852 Forbidden: /aplicatia_mea/interzis/
+WARNING 2026-02-19 20:54:34,968 basehttp 23128 19852 "GET /aplicatia_mea/interzis/ HTTP/1.1" 403 557
+WARNING 2026-02-19 20:54:35,389 log 23128 19852 Forbidden: /aplicatia_mea/interzis/
+WARNING 2026-02-19 20:54:35,396 basehttp 23128 19852 "GET /aplicatia_mea/interzis/ HTTP/1.1" 403 557
+WARNING 2026-02-19 20:54:35,825 log 23128 19852 Forbidden: /aplicatia_mea/interzis/
+WARNING 2026-02-19 20:54:35,830 basehttp 23128 19852 "GET /aplicatia_mea/interzis/ HTTP/1.1" 403 558
+WARNING 2026-02-19 20:55:26,057 log 23128 19852 Forbidden: /aplicatia_mea/interzis/
+WARNING 2026-02-19 20:55:26,058 basehttp 23128 19852 "GET /aplicatia_mea/interzis/ HTTP/1.1" 403 547
+ERROR 2026-02-19 20:57:56,227 log 16576 12276 Internal Server Error: /admin/login/
+Traceback (most recent call last):
+  File "C:\Users\maria\AppData\Roaming\Python\Python313\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+psycopg2.errors.UndefinedTable: relation "auth_user" does not exist
+LINE 1: ...user"."is_active", "auth_user"."date_joined" FROM "auth_user...
+                                                             ^
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\maria\AppData\Roaming\Python\Python313\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\maria\AppData\Roaming\Python\Python313\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\maria\AppData\Roaming\Python\Python313\site-packages\django\utils\decorators.py", line 48, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "C:\Users\maria\AppData\Roaming\Python\Python313\site-packages\django\views\decorators\cache.py", line 80, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\maria\AppData\Roaming\Python\Python313\site-packages\django\contrib\admin\sites.py", line 449, in login
+    return LoginView.as_view(**defaults)(request)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\maria\AppData\Roaming\Python\Python313\site-packages\django\views\generic\base.py", line 105, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\maria\AppData\Roaming\Python\Python313\site-packages\django\utils\decorators.py", line 48, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "C:\Users\maria\AppData\Roaming\Python\Python313\site-packages\django\utils\decorators.py", line 48, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "C:\Users\maria\AppData\Roaming\Python\Python313\site-packages\django\views\decorators\debug.py", line 143, in sensitive_post_parameters_wrapper
+    return view(request, *args, **kwargs)
+  File "C:\Users\maria\AppData\Roaming\Python\Python313\site-packages\django\utils\decorators.py", line 48, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "C:\Users\maria\AppData\Roaming\Python\Python313\site-packages\django\utils\decorators.py", line 192, in _view_wrapper
+    result = _process_exception(request, e)
+  File "C:\Users\maria\AppData\Roaming\Python\Python313\site-packages\django\utils\decorators.py", line 190, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\maria\AppData\Roaming\Python\Python313\site-packages\django\utils\decorators.py", line 48, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "C:\Users\maria\AppData\Roaming\Python\Python313\site-packages\django\views\decorators\cache.py", line 80, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\maria\AppData\Roaming\Python\Python313\site-packages\django\contrib\auth\views.py", line 89, in dispatch
+    return super().dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\maria\AppData\Roaming\Python\Python313\site-packages\django\views\generic\base.py", line 144, in dispatch
+    return handler(request, *args, **kwargs)
+  File "C:\Users\maria\AppData\Roaming\Python\Python313\site-packages\django\views\generic\edit.py", line 150, in post
+    if form.is_valid():
+       ~~~~~~~~~~~~~^^
+  File "C:\Users\maria\AppData\Roaming\Python\Python313\site-packages\django\forms\forms.py", line 206, in is_valid
+    return self.is_bound and not self.errors
+                                 ^^^^^^^^^^^
+  File "C:\Users\maria\AppData\Roaming\Python\Python313\site-packages\django\forms\forms.py", line 201, in errors
+    self.full_clean()
+    ~~~~~~~~~~~~~~~^^
+  File "C:\Users\maria\AppData\Roaming\Python\Python313\site-packages\django\forms\forms.py", line 338, in full_clean
+    self._clean_form()
+    ~~~~~~~~~~~~~~~~^^
+  File "C:\Users\maria\AppData\Roaming\Python\Python313\site-packages\django\forms\forms.py", line 354, in _clean_form
+    cleaned_data = self.clean()
+  File "C:\Users\maria\AppData\Roaming\Python\Python313\site-packages\django\views\decorators\debug.py", line 75, in sensitive_variables_wrapper
+    return func(*func_args, **func_kwargs)
+  File "C:\Users\maria\AppData\Roaming\Python\Python313\site-packages\django\contrib\auth\forms.py", line 366, in clean
+    self.user_cache = authenticate(
+                      ~~~~~~~~~~~~^
+        self.request, username=username, password=password
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\maria\AppData\Roaming\Python\Python313\site-packages\django\views\decorators\debug.py", line 75, in sensitive_variables_wrapper
+    return func(*func_args, **func_kwargs)
+  File "C:\Users\maria\AppData\Roaming\Python\Python313\site-packages\django\contrib\auth\__init__.py", line 114, in authenticate
+    user = backend.authenticate(request, **credentials)
+  File "C:\Users\maria\AppData\Roaming\Python\Python313\site-packages\django\contrib\auth\backends.py", line 65, in authenticate
+    user = UserModel._default_manager.get_by_natural_key(username)
+  File "C:\Users\maria\AppData\Roaming\Python\Python313\site-packages\django\contrib\auth\base_user.py", line 37, in get_by_natural_key
+    return self.get(**{self.model.USERNAME_FIELD: username})
+           ~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\maria\AppData\Roaming\Python\Python313\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "C:\Users\maria\AppData\Roaming\Python\Python313\site-packages\django\db\models\query.py", line 629, in get
+    num = len(clone)
+  File "C:\Users\maria\AppData\Roaming\Python\Python313\site-packages\django\db\models\query.py", line 366, in __len__
+    self._fetch_all()
+    ~~~~~~~~~~~~~~~^^
+  File "C:\Users\maria\AppData\Roaming\Python\Python313\site-packages\django\db\models\query.py", line 1949, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+                         ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\maria\AppData\Roaming\Python\Python313\site-packages\django\db\models\query.py", line 91, in __iter__
+    results = compiler.execute_sql(
+        chunked_fetch=self.chunked_fetch, chunk_size=self.chunk_size
+    )
+  File "C:\Users\maria\AppData\Roaming\Python\Python313\site-packages\django\db\models\sql\compiler.py", line 1623, in execute_sql
+    cursor.execute(sql, params)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\maria\AppData\Roaming\Python\Python313\site-packages\django\db\backends\utils.py", line 122, in execute
+    return super().execute(sql, params)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\maria\AppData\Roaming\Python\Python313\site-packages\django\db\backends\utils.py", line 79, in execute
+    return self._execute_with_wrappers(
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        sql, params, many=False, executor=self._execute
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\maria\AppData\Roaming\Python\Python313\site-packages\django\db\backends\utils.py", line 92, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "C:\Users\maria\AppData\Roaming\Python\Python313\site-packages\django\db\backends\utils.py", line 100, in _execute
+    with self.db.wrap_database_errors:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\maria\AppData\Roaming\Python\Python313\site-packages\django\db\utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "C:\Users\maria\AppData\Roaming\Python\Python313\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+django.db.utils.ProgrammingError: relation "auth_user" does not exist
+LINE 1: ...user"."is_active", "auth_user"."date_joined" FROM "auth_user...
+                                                             ^
+
+ERROR 2026-02-19 20:57:56,234 basehttp 16576 12276 "POST /admin/login/?next=/admin/ HTTP/1.1" 500 246074
+WARNING 2026-02-20 10:11:33,285 log 24872 8708 Not Found: /favicon.ico
+WARNING 2026-02-20 10:11:33,290 basehttp 24872 8708 "GET /favicon.ico HTTP/1.1" 404 2541
+WARNING 2026-02-20 10:38:13,184 views 23320 3032 Tentativa de logare pe cont blocat: teo
+WARNING 2026-02-28 12:28:59,440 log 18152 9504 Not Found: /favicon.ico
+WARNING 2026-02-28 12:28:59,445 basehttp 18152 9504 "GET /favicon.ico HTTP/1.1" 404 2541

@@ -1,0 +1,45 @@
+{% extends 'aplicatia_mea/baza.html' %} {% block content %}
+<div style="max-width: 800px; margin: 50px auto; padding: 30px; border: 2px solid #28a745; border-radius: 15px; background-color: #f8fff9; font-family: sans-serif;">
+    
+    <div style="text-align: center; margin-bottom: 30px;">
+        <h1 style="color: #28a745;">Mesaj trimis cu succes!</h1>
+    </div>
+
+    <hr style="border: 0; border-top: 1px solid #c3e6cb; margin: 20px 0;">
+
+    <div style="background: white; padding: 20px; border-radius: 10px; border: 1px solid #ddd;">
+        <h3 style="margin-top: 0; color: #333;">Rezumatul procesarii:</h3>
+        
+        <table style="width: 100%; border-collapse: collapse;">
+            <tr style="border-bottom: 1px solid #eee;">
+                <td style="padding: 10px; font-weight: bold; width: 30%;">Identificator fisier:</td>
+                <td style="padding: 10px; font-family: monospace; color: #0056b3;">{{ nume_fisier }}</td>
+            </tr>
+            <tr style="border-bottom: 1px solid #eee;">
+                <td style="padding: 10px; font-weight: bold;">Varsta calculata:</td>
+                <td style="padding: 10px;">{{ date_de_salvat.varsta_la_momentul_mesajului }}</td>
+            </tr>
+            <tr style="border-bottom: 1px solid #eee;">
+                <td style="padding: 10px; font-weight: bold;">Statut:</td>
+                <td style="padding: 10px;">
+                    {% if date_de_salvat.urgent %}
+                        <span style="background: #dc3545; color: white; padding: 3px 8px; border-radius: 4px; font-size: 0.8em; font-weight: bold;">URGENT</span>
+                    {% else %}
+                        <span style="background: #6c757d; color: white; padding: 3px 8px; border-radius: 4px; font-size: 0.8em; font-weight: bold;">NORMAL</span>
+                    {% endif %}
+                </td>
+            </tr>
+            <tr>
+                <td style="padding: 10px; font-weight: bold;">Mesaj final (formatat):</td>
+                <td style="padding: 10px; font-style: italic; color: #444;">"{{ date_de_salvat.mesaj }}"</td>
+            </tr>
+        </table>
+    </div>
+
+    <div style="margin-top: 30px; text-align: center;">
+        <a href="{% url 'contact' %}" style="display: inline-block; padding: 12px 25px; background-color: #007bff; color: white; text-decoration: none; border-radius: 5px; font-weight: bold; transition: background 0.3s;">
+            Trimite un alt mesaj
+        </a>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,31 @@
+{% extends "aplicatia_mea/baza.html" %}
+{% load static %}
+
+{% block title %}Pagina principala{% endblock %}
+
+{% block content %}
+    <h2>Pagina principala</h2>
+
+
+    <section id="prezentare">
+        <h3>Prezentare</h3>
+        <p>Magazin online de parfumuri. Utilizatorii pot vizualiza si cumpara produse din diverse categorii.</p>
+    </section>
+
+    <section id="categorii">
+        <h3>Categorii principale</h3>
+        <ul>
+            <li>Apa de parfum</li>
+            <li>Apa de toaleta</li>
+            <li>Ulei parfumat</li>
+        </ul>
+    </section>
+
+    <section id="recomandate">
+        <h3>Produse recomandate</h3>
+        <p>Selectie de parfumuri recomandate si populare.</p>
+    </section>
+
+    <img src="{% static 'aplicatia_mea/imagini/poza_index.jpg' %}" alt="Parfumuri" style="max-width:700px;">
+
+{% endblock %}

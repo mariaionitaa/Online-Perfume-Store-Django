@@ -1,0 +1,35 @@
+{% extends "aplicatia_mea/baza.html" %}
+{% load static %}
+
+{% block content %}
+<div style="display: flex; gap: 50px; margin-top: 30px;">
+    <div style="flex: 1;">
+        {% if parfum.imagine %}
+            <img src="{{ parfum.imagine.url }}" alt="{{ parfum.nume_parfum }}" style="width: 100%; border-radius: 10px; box-shadow: 5px 5px 15px rgba(0,0,0,0.1);">
+        {% endif %}
+    </div>
+
+    <div style="flex: 1;">
+        <h1>{{ parfum.nume_parfum }}</h1>
+        <hr>
+        <p><strong>Categorie:</strong> {{ parfum.nume_categorie.nume_categorie }}</p>
+        <p><strong>Gen:</strong> {{ parfum.get_gen_parfum_display }}</p>
+        <p><strong>Volum:</strong> {{ parfum.volum }} ml</p>
+        <p style="font-size: 24px; color: #d32f2f;"><strong>Pret: {{ parfum.pret }} RON</strong></p>
+        
+        <h3>Descriere:</h3>
+        <p><em>{{ parfum.descriere }}</em></p>
+
+        <h3>Furnizori:</h3>
+        <ul>
+            {% for f in parfum.furnizori.all %}
+                <li>{{ f.nume_brand }} ({{ f.tara }})</li>
+            {% empty %}
+                <li>Nu exista furnizori asociati.</li>
+            {% endfor %}
+        </ul>
+
+        <a href="{% url 'produse' %}" style="display: inline-block; margin-top: 20px; text-decoration: none; color: blue;">&larr; Inapoi la catalog</a>
+    </div>
+</div>
+{% endblock %}

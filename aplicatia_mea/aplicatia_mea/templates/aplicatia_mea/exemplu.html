@@ -1,0 +1,10 @@
+{% extends "./baza.html" %}
+{% load static %}
+{% block title %}Pagina articolului{% endblock %}
+
+{% block content %}
+<h1>Titlu</h1>
+<p>paragraf{{nume}}</p>
+<img src="{% static "aplicatia_mea/imagini/parfumuri.jpg" %}"
+alt="imagine"/>
+{% endblock %}

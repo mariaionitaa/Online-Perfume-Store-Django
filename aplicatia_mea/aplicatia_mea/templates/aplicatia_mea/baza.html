@@ -1,0 +1,57 @@
+{% load static %}
+<!doctype html>
+<html lang="ro">
+<head>
+    <meta charset="utf-8">
+    <title>{% block title %}Pagina mea{% endblock %}</title>
+
+    <link rel="stylesheet" href="{% static 'aplicatia_mea/css/stil.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    {% block extra_head %}{% endblock %}
+</head>
+
+<body>
+<header class="site-header">
+    <h1 class="logo">Magazin de parfumuri</h1>
+
+    <nav class="navbar">
+        <ul class="menu">
+            <li class="dropdown">
+                <a href="{% url 'index' %}">Acasa</a>
+                <ul class="submenu">
+                    <li><a href="{% url 'index' %}#prezentare">Prezentare</a></li>
+                    <li><a href="{% url 'index' %}#categorii">Categorii</a></li>
+                    <li><a href="{% url 'index' %}#recomandate">Recomandate</a></li>
+                </ul>
+            </li>
+
+            <li class="dropdown">
+                <a href="{% url 'despre' %}">Despre</a>
+                <ul class="submenu">
+                    <li><a href="{% url 'despre' %}#viziune">Scop</a></li>
+                    <li><a href="{% url 'despre' %}#echipa">Echipa</a></li>
+                </ul>
+            </li>
+
+            <li><a href="{% url 'produse' %}">Produse</a></li>
+            <li><a href="{% url 'contact' %}">Contact</a></li>
+            <li><a href="{% url 'cos_virtual' %}">Cos virtual</a></li>
+            <li><a href="{% url 'ghid_arome' %}">Ghid Arome</a></li>
+            <li><a href="{% url 'pachete_cadou' %}">Pachete Cadou</a></li>
+            <li><a href="{% url 'log_view' %}">Log</a></li>
+            <li><a href="{% url 'info' %}">Info</a></li>
+        </ul>
+    </nav>
+
+</header>
+
+<main class="site-main">
+    {% block content %}{% endblock %}
+</main>
+
+<footer class="site-footer">
+    <p>Ionita Maria</p>
+    <p>IP utilizator: {{ request.META.REMOTE_ADDR }}</p>
+</footer>
+</body>
+</html>

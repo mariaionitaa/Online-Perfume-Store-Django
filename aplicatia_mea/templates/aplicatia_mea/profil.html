@@ -1,0 +1,24 @@
+{% extends 'aplicatia_mea/baza.html' %}
+
+{% block content %}
+
+<div style="max-width: 600px; margin: 0 auto; padding: 20px; border: 1px solid #ddd; border-radius: 8px;">
+    <h2>Profilul meu</h2>
+    <p><strong>Nume:</strong> {{ nume }}</p>
+    <p><strong>Telefon:</strong> {{ telefon }}</p>
+    <p><strong>Oras:</strong> {{ oras }}</p>
+    <p><strong>Adresa livrare:</strong> {{ adresa }}</p>
+
+        {% if messages %}
+            
+                {% for message in messages %}
+                    <div class="{{ message.tags }}">{{ message }}</div>
+                {% endfor %}
+        {% endif %}
+    <hr>
+    <a href="{% url 'schimba_parola' %}">Schimba parola aici</a>
+    <br>
+    <a href="{% url 'logout' %}">Deconectare</a>
+</div>
+
+{% endblock %}

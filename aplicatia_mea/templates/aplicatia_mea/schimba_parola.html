@@ -1,0 +1,25 @@
+{% extends 'aplicatia_mea/baza.html' %}
+
+{% block content %}
+<div style="max-width: 600px; margin: 0 auto; padding: 20px; border: 1px solid #ddd; border-radius: 8px;">
+    <form method="post">
+        {% csrf_token %}
+        {{ form.non_field_errors }}
+        <div>
+            {{ form.old_password.label_tag }} {{ form.old_password }}
+            {{ form.old_password.errors }}
+        </div>
+        <div>
+            {{ form.new_password1.label_tag }} {{ form.new_password1 }}
+            {{ form.new_password1.errors }}
+        </div>
+        <div>
+            {{ form.new_password2.label_tag }} {{ form.new_password2 }}
+            {{ form.new_password2.errors }}
+        </div>
+
+        <button type="submit">Actualizeaza Parola</button>
+    </form>
+</div>
+
+{% endblock %}

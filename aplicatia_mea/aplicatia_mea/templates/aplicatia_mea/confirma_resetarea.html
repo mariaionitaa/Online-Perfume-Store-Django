@@ -1,0 +1,17 @@
+{% extends 'aplicatia_mea/baza.html' %}
+
+{% block content %}
+<div style="text-align: center; margin-top: 50px; padding: 30px; border: 1px solid #ddd; background: #fffaf0;">
+    <p>Esti sigur ca vrei sa resetezi toate filtrele aplicate? Vei pierde criteriile de cautare introduse.</p>
+    
+    <div style="margin-top: 20px;">
+        <a href="{% url 'produse' %}" style="padding: 10px 20px; background: #d32f2f; color: white; text-decoration: none; border-radius: 5px; margin-right: 10px;">
+            Da, reseteaza filtrele
+        </a>
+
+        <a href="{{ referer }}" style="padding: 10px 20px; background: #6c757d; color: white; text-decoration: none; border-radius: 5px;">
+            Nu, pastreaza filtrele
+        </a>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <title>Eroare 403</title>
+</head>
+<body>
+    <p>
+        {% if user.is_authenticated %}
+            Salut {{ user.username }}
+        {% else %}
+            Salut preastimate anonim
+        {% endif %}
+    </p>
+
+    <h1>{% if titlu %}{{ titlu }}{% else %}Eroare 403{% endif %}</h1>
+
+    <p><em>{{ mesaj_personalizat }}</em></p>
+
+    <hr>
+    
+    <p>Numar de accesari 403 : {{ numar_accesari }}</p>
+
+    {% if numar_accesari > n_max %}
+        <p style="color: red; font-weight: bold;">
+            ATENTIE: Ati depasit limita de {{ n_max }} incercari de acces neautorizat!
+        </p>
+    {% endif %}
+
+</body>
+</html>

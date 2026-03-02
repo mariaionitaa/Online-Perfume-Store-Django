@@ -1,0 +1,18 @@
+{% extends "aplicatia_mea/baza.html" %}
+{% block title %}Informatii despre server{% endblock %}
+
+{% block content %}
+    <h1>Informatii despre server</h1>
+
+    <section>
+        <h2>Parametri</h2>
+        <p>A primit {{ nr_parametri }} parametri.</p>
+        <ul>
+            {% for p in nume_parametri %}
+                <li>{{ p }}</li>
+            {% endfor %}
+        </ul>
+    </section>
+
+    {{ sectiune_data|safe }}
+{% endblock %}

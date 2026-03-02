@@ -1,0 +1,13 @@
+{% extends "aplicatia_mea/baza.html" %}
+
+{% block content %}
+<div style="text-align: center; padding: 100px 20px;">
+    <h1 style="font-size: 80px; color: #d32f2f; margin-bottom: 0;">404</h1>
+    <h2 style="margin-top: 0;">Ups! Parfumul cautat nu a fost gasit.</h2>
+    <br>
+    <a href="{% url 'produse' %}" 
+       style="background: #333; color: white; padding: 10px 25px; text-decoration: none; border-radius: 5px;">
+        Inapoi la catalogul de parfumuri
+    </a>
+</div>
+{% endblock %}

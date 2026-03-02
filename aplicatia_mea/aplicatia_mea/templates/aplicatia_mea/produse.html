@@ -1,0 +1,158 @@
+{% extends "aplicatia_mea/baza.html" %}
+{% load static %}
+{% block title %}Produse{% endblock %}
+
+{% block content %}
+    <h1>Catalog Parfumuri</h1>
+
+    <nav>
+        <ul style="display: flex; list-style: none; gap: 20px;">
+            <li><a href="{% url 'produse' %}">Toate Produsele</a></li>
+            <li class="dropdown" style="position: relative;">
+                <a href="#">Categorii</a>
+                <ul class="dropdown-content" style="position: absolute; background: white; border: 1px solid #ccc; padding: 10px; display: none; z-index: 100;">
+                    {% for cat in toate_categoriile %}
+                        <li><a href="{% url 'pagina_categorie' cat.nume_categorie %}">{{ cat.nume_categorie }}</a></li>
+                    {% endfor %}
+                </ul>
+            </li>
+        </ul>
+    </nav>
+
+    <style>
+        .dropdown:hover .dropdown-content { display: block !important; }
+    </style>
+
+    <div style="background: #f8f9fa; padding: 20px; border-radius: 8px; margin-bottom: 30px; border: 1px solid #dee2e6;">
+        <form method="GET" style="display: flex; flex-wrap: wrap; gap: 15px; align-items: flex-end;">
+
+            {% if form.non_field_errors %}
+                <div style="background: #ffebee; color: #c62828; padding: 10px; border-radius: 5px; margin-bottom: 10px;">
+                    {% for error in form.non_field_errors %}
+                        {{ error }}
+                    {% endfor %}
+                </div>
+            {% endif %}
+
+            {% for field in form %}
+                <div style="display: flex; flex-direction: column;">
+
+                    {% if field.errors %}
+                        {% for error in field.errors %}
+                            <div style="background: #ffebee; color: #c62828; padding: 10px; border-radius: 5px; margin-bottom: 10px;">{{ error }}</div>
+                        {% endfor %}
+                    {% endif %}
+                    <label style="font-weight: bold; font-size: 0.9em;">{{ field.label }}</label>
+                    {{ field }}
+
+                    {% if field.name == 'categorie' and este_pagina_categorie %}
+                        <span style="padding: 5px 10px; background: #e9ecef; border: 1px solid #ced4da; border-radius: 4px; color: #495057;">
+                            <i class="fa-solid {{ categorie_curenta.iconita }}"></i> {{ categorie_curenta.nume_categorie }}
+                        </span>
+
+                    {% endif %}
+
+                </div>
+            {% endfor %}
+            
+            <input type="hidden" name="page" value="{{ parfumuri.number }}">
+            <input type="hidden" name="sort" value="{{ current_sort }}">
+            
+            <button type="submit" style="background: #333; color: white; border: none; padding: 8px 20px; border-radius: 4px; cursor: pointer;">
+                Filtreaza
+            </button>
+            <a href="{% url 'confirma_resetarea' %}" style="background: #333; color: white; border: none; padding: 8px 20px; border-radius: 4px; cursor: pointer; text-decoration: none;">Reseteaza Filtrele</a>
+        </form>
+    </div>
+    
+    {% if este_pagina_categorie %}
+        <div style="background: #fbebf2; padding: 20px; border-radius: 8px; margin-bottom: 25px;">
+            <h2>
+                <i class="fa-solid {{ categorie_curenta.iconita }}"></i> 
+                {{ categorie_curenta.nume_categorie }}
+            </h2>
+            <p><em>{{ categorie_curenta.descriere }}</em></p>
+        </div>
+    {% endif %}
+
+    {% if not este_pagina_categorie %}
+        <div style="margin-bottom: 20px;">
+            <span>Sorteaza dupa pret: </span>
+            <a href="?sort=a" style="font-weight: {% if current_sort == 'a' %}bold{% else %}normal{% endif %};">Crescator</a> | 
+            <a href="?sort=d" style="font-weight: {% if current_sort == 'd' %}bold{% else %}normal{% endif %};">Descrescator</a>
+        </div>
+    {% endif %}
+
+    {% if show_repro_message %}
+        <div style="background-color: #fff3cd; color: #856404; border: 1px solid #ffeeba; padding: 15px; border-radius: 4px; margin-bottom: 20px;">
+            <strong>Nota:</strong> In urma modificarii numarului de produse pe pagina, este posibil sa fi sarit peste unele produse sau sa le vedeti din nou pe cele deja vizualizate.
+        </div>
+    {% endif %}
+
+    <div class="container-produse">
+        {% for parfum in parfumuri %}
+            <div class="card-parfum" style="border: 1px solid #ddd; padding: 15px; margin: 10px; border-radius: 8px">
+                <h3>
+                    <a href="{% url 'detalii_produs' parfum.id_parfum %}" style="text-decoration: none; color: #333;">
+                        {{ parfum.nume_parfum }}
+                    </a>
+                </h3>
+                <p><strong>Pret:</strong> {{ parfum.pret }} RON</p>
+                <!-- <p><strong>Gen:</strong> {{ parfum.get_gen_parfum_display }}</p> <p><strong>Pret:</strong> {{ parfum.pret }} RON</p>
+                <p><strong>Volum:</strong> {{ parfum.volum }} ml</p> -->
+                <p><strong>Categorie:</strong> 
+                    {% if parfum.nume_categorie %}
+                        <a href="{% url 'pagina_categorie' parfum.nume_categorie.nume_categorie %}" 
+                        style="text-decoration: none; color: #007bff; font-weight: bold;">
+                            <i class="fa-solid {{ parfum.nume_categorie.iconita }}"></i> 
+                            {{ parfum.nume_categorie.nume_categorie }}
+                        </a>
+                    {% else %}
+                        <span>Niciun produs nu corespunde criteriilor tale.</span>
+                    {% endif %}
+                </p>
+
+                {% if parfum.descriere %}
+                    <p><em>{{ parfum.descriere }}</em></p>
+                {% endif %}
+
+                {% if parfum.imagine %}
+                    <img src="{{ parfum.imagine.url }}" alt="{{ parfum.id_parfum }}" style="width: 300px; height: 500px; object-fit: cover; border-radius: 5px;">
+                {% else %}
+                    <div style="height: 200px; background: #eee; display: flex; align-items: center; justify-content: center;"> Fara imagine </div>
+                {% endif %}
+
+                <p><strong>Furnizor:</strong> 
+                    {% for furnizor in parfum.furnizori.all %}
+                        {{ furnizor.nume_brand }}{% if not forloop.last %}, {% endif %}
+                    {% empty %}
+                        Momentan fara furnizor asociat.
+                    {% endfor %}
+                </p>
+            </div>
+        {% empty %}
+            <p>Momentan nu avem parfumuri in stoc. Reveniti curand!</p>
+        {% endfor %}
+    </div>
+
+    <div class="pagination" style="margin-top: 30px; text-align: center;">
+        <span class="step-links">
+            {% if parfumuri.has_previous %}
+                <a href="?page=1&sort={{ current_sort }}">&laquo; prima</a>
+                <!-- <a href="?page={{ parfumuri.previous_page_number }}&sort={{ current_sort }}">inapoi</a>-->
+                <a href="?page={{ parfumuri.previous_page_number }}{% for key, value in request.GET.items %}{% if key != 'page' %}&{{ key }}={{ value }}{% endif %}{% endfor %}">inapoi</a> 
+            {% endif %}
+
+            <span class="current">
+                Pagina {{ parfumuri.number }} din {{ parfumuri.paginator.num_pages }}
+            </span>
+
+            {% if parfumuri.has_next %}
+                <!-- <a href="?page={{ parfumuri.next_page_number }}&sort={{ current_sort }}">urmatoarea</a> -->
+                <a href="?page={{ parfumuri.next_page_number }}{% for key, value in request.GET.items %}{% if key != 'page' %}&{{ key }}={{ value }}{% endif %}{% endfor %}">urmatoarea</a>
+                <a href="?page={{ parfumuri.paginator.num_pages }}&sort={{ current_sort }}">ultima &raquo;</a>
+            {% endif %}
+        </span>
+    </div>
+
+{% endblock %}

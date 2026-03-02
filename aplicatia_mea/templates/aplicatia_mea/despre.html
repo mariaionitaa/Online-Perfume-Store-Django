@@ -1,0 +1,22 @@
+{% extends "aplicatia_mea/baza.html" %}
+{% load static %}
+
+{% block title %}Despre{% endblock %}
+
+{% block content %}
+    <h2>Despre</h2>
+
+    <img src="{% static 'aplicatia_mea/imagini/despre.jpg' %}" alt="Despre magazin" style="max-width:420px;">
+
+    <p>Acest magazin de parfumuri ofera produse din mai multe categorii, cu descrieri si filtre pentru o alegere usoara.</p>
+
+    <section id="scop">
+        <h3>Scop</h3>
+        <p>Scopul paginii este de a prezenta magazinul si valorile sale: calitate, transparenta si suport pentru clienti.</p>
+    </section>
+
+    <section id="echipa">
+        <h3>Echipa</h3>
+        <p>Colaboram cu persoane care selecteaza produse si se asigura ca informatiile sunt clare si corecte.</p>
+    </section>
+{% endblock %}

@@ -1,0 +1,63 @@
+{% extends "aplicatia_mea/baza.html" %}
+
+{% block title %}Log accesari{% endblock %}
+
+{% block content %}
+    <h1>Log accesari</h1>
+
+    {% if mesaj_eroare %}
+        <p style="color:red;"><b>{{ mesaj_eroare }}</b></p>
+    {% endif %}
+
+    {% if mesaj_eroare_critica %}
+        <p style="color:red;"><b>{{ mesaj_eroare_critica }}</b></p>
+    {% endif %}
+
+    {% if tip_vizualizare == "nr" %}
+        <p>Numarul total de accesari: <strong>{{ k }}</strong></p>
+    {% elif tip_vizualizare == "detalii" %}
+        <section>
+            <h3>Detalii accesari (Data si Ora):</h3>
+            <ul>
+                {% for acc in accesari %}
+                    <li>Accesarea {{ acc.id }}: {{ acc.data_formatata|default:acc.data }}</li>
+                {% endfor %}
+            </ul>
+        </section>
+    {% endif %}
+
+    {% if coloane %}
+        <table border="1">
+            <thead>
+                <tr>
+                    {% if "id" in coloane %}<th>ID</th>{% endif %}
+                    {% if "ip_client" in coloane %}<th>IP</th>{% endif %}
+                    {% if "url" in coloane %}<th>URL</th>{% endif %}
+                    {% if "pagina" in coloane %}<th>Pagina</th>{% endif %}
+                    {% if "data" in coloane %}<th>Data</th>{% endif %}
+                </tr>
+            </thead>
+            <tbody>
+                {% for acc in accesari %}
+                <tr>
+                    {% if "id" in coloane %}<td>{{ acc.id }}</td>{% endif %}
+                    {% if "ip_client" in coloane %}<td>{{ acc.ip_client }}</td>{% endif %}
+                    {% if "url" in coloane %}<td>{{ acc.url }}</td>{% endif %}
+                    {% if "pagina" in coloane %}<td>{{ acc.pagina }}</td>{% endif %}
+                    {% if "data" in coloane %}<td>{{ acc.data }}</td>{% endif %}
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% endif %}
+
+    <section>
+        <h2>Statistici accesari</h2>
+        <p>
+            <b>Cea mai putin accesata: </b>{{ pagina_min }}
+        </p>
+        <p>
+            <b>Cea mai accesata: </b>{{ pagina_max }}
+        </p>
+    </section>
+{% endblock %}

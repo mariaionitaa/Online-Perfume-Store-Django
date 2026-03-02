@@ -1,0 +1,15 @@
+{
+    "nume": "Popa",
+    "prenume": "Ana",
+    "cnp": "2990203017270",
+    "varsta_la_momentul_mesajului": "27 de ani si 0 luni",
+    "email": "ana@mail.com",
+    "tip_mesaj": "intrebare",
+    "subiect": "Test doi",
+    "minim_zile_asteptare": 2,
+    "mesaj": "Mesaj Va rugam sa va si semnati la finalul mesajului Popa",
+    "urgent": true,
+    "ip_utilizator": "127.0.0.1",
+    "data_sosire": "15-02-2026",
+    "ora_sosire": "21:14:15"
+}
